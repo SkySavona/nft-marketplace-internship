@@ -90,7 +90,11 @@ const HotCollections = () => {
           </div>
           <div className="col-lg-12">
             {loading ? (
-              <SkeletonLoader count={slidesToShow} />
+              <SkeletonLoader
+                count={slidesToShow}
+                type="hotCollections"
+                settings={settings}
+              />
             ) : (
               <div className="slider-container">
                 <Slider {...settings}>
