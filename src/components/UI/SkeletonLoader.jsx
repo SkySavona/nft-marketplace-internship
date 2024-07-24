@@ -3,7 +3,7 @@ import Skeleton from './Skeleton';
 import Slider from 'react-slick';
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-const SkeletonLoader = ({ count }) => {
+const SkeletonLoader = ({ count, type, settings }) => {
   const skeletonItems = Array.from({ length: count });
 
   const NextArrow = ({ onClick }) => (
@@ -18,9 +18,9 @@ const SkeletonLoader = ({ count }) => {
     </div>
   );
 
-  const settings = {
+  const defaultSettings = {
     infinite: true,
-    speed: 500,
+    speed: 300,
     slidesToShow: count,
     slidesToScroll: 1,
     initialSlide: 0,
@@ -31,25 +31,43 @@ const SkeletonLoader = ({ count }) => {
     centerPadding: "0",
   };
 
+  const mergedSettings = { ...defaultSettings, ...settings };
+
   return (
-    <Slider {...settings}>
+    <Slider {...mergedSettings}>
       {skeletonItems.map((_, index) => (
         <div key={index} className="slide-item">
-          <div className="nft_coll">
-            <div className="nft_wrap">
-              <Skeleton width="100%" height="200px" />
-            </div>
-            <div className="nft_coll_pp">
-              <Skeleton width="60px" height="60px" borderRadius="50%" />
-              <i className="fa fa-check"></i>
-            </div>
-            <div className="nft_coll_info">
-              <Skeleton width="140px" height="20px" />
-              <div>
-              <Skeleton width="100px" height="20px" />
+          {type === 'newItems' ? (
+            <div className="nft__item">
+              <div className="author_list_pp">
+                <Skeleton width="50px" height="50px" borderRadius="50%" />
+                <i className="fa fa-check"></i>
+              </div>
+              <div className="nft__item_wrap">
+                <Skeleton width="100%" height="200px" />
+              </div>
+              <div className="nft__item_info">
+                <Skeleton width="140px" height="20px" />
+                <Skeleton width="100px" height="20px" />
               </div>
             </div>
-          </div>
+          ) : (
+            <div className="nft_coll">
+              <div className="nft_wrap">
+                <Skeleton width="100%" height="200px" />
+              </div>
+              <div className="nft_coll_pp">
+                <Skeleton width="60px" height="60px" borderRadius="50%" />
+                <i className="fa fa-check"></i>
+              </div>
+              <div className="nft_coll_info">
+                <Skeleton width="140px" height="20px" />
+                <div>
+                  <Skeleton width="100px" height="20px" />
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       ))}
     </Slider>
