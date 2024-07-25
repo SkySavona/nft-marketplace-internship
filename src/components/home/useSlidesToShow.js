@@ -1,4 +1,3 @@
-// /src/components/home/useSlidesToShow.jsx
 import { useState, useEffect } from "react";
 
 const getSlidesToShow = (width) => {
