@@ -3004,6 +3004,10 @@ a.btn-fx.light:hover:before {
   display: block;
 }
 
+.btn-main.unfollow {
+  background-color: #000000b5;
+}
+
 a.btn-slider {
   font-size: 14px;
   font-weight: bold;
@@ -16490,6 +16494,8 @@ img {
   .nft__item_lg .btn-main {
     display: block;
   }
+
+
 
   .nft__item_lg .d-attr > div:nth-child(2) {
     padding: 0;
