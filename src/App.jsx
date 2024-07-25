@@ -15,7 +15,6 @@ function App() {
         <Route path="/explore" element={<Explore />} />
         <Route path="/author/:authorId" element={<Author />} />
         <Route path="/item-details/:itemId" element={<ItemDetails />} />
-        <Route path="/item-details" element={<ItemDetails />} />
       </Routes>
       <Footer />
     </Router>

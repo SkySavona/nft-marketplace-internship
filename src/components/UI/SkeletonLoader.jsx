@@ -33,6 +33,89 @@ const SkeletonLoader = ({ count, type, settings }) => {
 
   const mergedSettings = { ...defaultSettings, ...settings };
 
+  const renderItemDetails = () => (
+    <div id="wrapper">
+      <div className="no-bottom no-top" id="content">
+        <div id="top"></div>
+        <section aria-label="section" className="mt90 sm-mt-0">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-6 text-center">
+                <Skeleton
+                  width="100%"
+                  height="400px"
+                  className="img-fluid img-rounded mb-sm-30 nft-image"
+                />
+              </div>
+              <div className="col-md-6">
+                <div className="item_info">
+                  <Skeleton width="70%" height="40px" />
+                  <div className="item_info_counts">
+                    <div className="item_info_views">
+                      <i className="fa fa-eye"></i>
+                    </div>
+                    <div className="item_info_like">
+                      <i className="fa fa-heart"></i>
+                    </div>
+                  </div>
+                  <Skeleton width="100%" height="100px" />
+                  <div className="d-flex flex-row">
+                    <div className="mr40">
+                      <h6>Owner</h6>
+                      <div className="item_author">
+                        <div className="author_list_pp">
+                          <Skeleton
+                            width="50px"
+                            height="50px"
+                            borderRadius="50%"
+                          />
+                        </div>
+                        <div className="author_list_info">
+                          <Skeleton width="100px" height="20px" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="de_tab tab_simple">
+                    <div className="de_tab_content">
+                      <h6>Creator</h6>
+                      <div className="item_author">
+                        <div className="author_list_pp">
+                          <Skeleton
+                            width="50px"
+                            height="50px"
+                            borderRadius="50%"
+                          />
+                        </div>
+                        <div className="author_list_info">
+                          <Skeleton width="100px" height="20px" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="spacer-40"></div>
+                    <h6>Price</h6>
+                    <div className="nft-item-price">
+                      <Skeleton
+                        width="24px"
+                        height="24px"
+                        display="inline-block"
+                      />
+                      <Skeleton
+                        width="80px"
+                        height="24px"
+                        display="inline-block"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+
   return (
     <>
       {type === "topSellers" ? (
@@ -194,7 +277,9 @@ const SkeletonLoader = ({ count, type, settings }) => {
                               </div>
                               <div className="nft__item_like">
                                 <i className="fa fa-heart"></i>
-                                <Skeleton width="10px" height="10px" />
+                                <span>
+                                  <Skeleton width="10px" height="10px" />
+                                </span>
                               </div>
                             </div>
                           </div>
@@ -207,6 +292,8 @@ const SkeletonLoader = ({ count, type, settings }) => {
             </div>
           </section>
         </>
+      ) : type === "itemDetails" ? (
+        renderItemDetails()
       ) : null}
     </>
   );
