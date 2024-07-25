@@ -8,6 +8,8 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import SkeletonLoader from "../UI/SkeletonLoader";
 import useSlidesToShow from "./useSlidesToShow";
 import "../../css/styles/react-slick.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const HotCollections = () => {
   const [data, setData] = useState([]);
@@ -28,6 +30,10 @@ const HotCollections = () => {
     };
 
     fetchData();
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
   }, []);
 
   const NextArrow = ({ onClick }) => (
@@ -83,7 +89,11 @@ const HotCollections = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="text-center">
+            <div
+              className="text-center"
+              data-aos="fade-in"
+              data-aos-delay="200"
+            >
               <h2>Hot Collections</h2>
               <div className="small-border bg-color-2"></div>
             </div>
@@ -100,7 +110,11 @@ const HotCollections = () => {
                 <Slider {...settings}>
                   {data.map((collection) => (
                     <div key={collection.id} className="slide-item">
-                      <div className="nft_coll">
+                      <div
+                        className="nft_coll"
+                        data-aos="fade-in"
+                        data-aos-delay="200"
+                      >
                         <div className="nft_wrap">
                           <Link to={`/item-details/${collection.id}`}>
                             <img
