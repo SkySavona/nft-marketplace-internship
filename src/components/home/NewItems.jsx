@@ -20,7 +20,7 @@ const NewItems = () => {
           "https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems"
         );
         setData(response.data);
-        setLoading(false)
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -89,7 +89,11 @@ const NewItems = () => {
           </div>
           <div className="col-lg-12">
             {loading ? (
-              <SkeletonLoader count={slidesToShow} type="newItems" settings={settings} />
+              <SkeletonLoader
+                count={slidesToShow}
+                type="newItems"
+                settings={settings}
+              />
             ) : (
               <div className="slider-container">
                 <Slider {...settings}>
@@ -144,7 +148,9 @@ const NewItems = () => {
                           <Link to={`/item-details/${item.id}`}>
                             <h4>{item.title}</h4>
                           </Link>
-                          <div className="nft__item_price">{item.price} ETH</div>
+                          <div className="nft__item_price">
+                            {item.price} ETH
+                          </div>
                           <div className="nft__item_like">
                             <i className="fa fa-heart"></i>
                             <span>{item.likes}</span>
