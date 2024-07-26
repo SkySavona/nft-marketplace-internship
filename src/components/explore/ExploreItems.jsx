@@ -32,7 +32,6 @@ const ExploreItems = () => {
   useEffect(() => {
     fetchItems(filter);
     AOS.init({
-      duration: 1000,
       once: true,
     });
   }, [filter]);
@@ -43,7 +42,7 @@ const ExploreItems = () => {
 
   return (
     <>
-      <div data-aos="fade-in">
+      <div data-aos="fade-in" data-aos-duration="2000">
         <select
           id="filter-items"
           defaultValue=""
@@ -60,6 +59,8 @@ const ExploreItems = () => {
       ) : (
         items.slice(0, visibleItems).map((item, index) => (
           <div
+            data-aos="fade-in"
+            data-aos-duration="2000"
             key={index}
             className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
             style={{ display: "block", backgroundSize: "cover" }}
