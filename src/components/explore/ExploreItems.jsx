@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import SkeletonLoader from "../UI/SkeletonLoader";
 import CountdownTimer from "../UI/CountdownTimer";
 import "../../css/styles/react-slick.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const ExploreItems = () => {
   const [items, setItems] = useState([]);
@@ -29,6 +31,9 @@ const ExploreItems = () => {
 
   useEffect(() => {
     fetchItems(filter);
+    AOS.init({
+      once: true,
+    });
   }, [filter]);
 
   const handleLoadMore = () => {
@@ -37,7 +42,7 @@ const ExploreItems = () => {
 
   return (
     <>
-      <div>
+      <div data-aos="fade-in" data-aos-duration="2000">
         <select
           id="filter-items"
           defaultValue=""
@@ -54,6 +59,8 @@ const ExploreItems = () => {
       ) : (
         items.slice(0, visibleItems).map((item, index) => (
           <div
+            data-aos="fade-in"
+            data-aos-duration="2000"
             key={index}
             className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
             style={{ display: "block", backgroundSize: "cover" }}
@@ -120,7 +127,8 @@ const ExploreItems = () => {
         <button
           onClick={handleLoadMore}
           id="loadmore"
-          className="btn-main lead"
+          data-aos="fade-in"
+          className="btn-main lead "
         >
           Load more
         </button>

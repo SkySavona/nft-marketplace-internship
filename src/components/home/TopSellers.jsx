@@ -29,7 +29,12 @@ const TopSellers = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="text-center">
+            <div
+              className="text-center"
+              data-aos="fade-in"
+              data-aos-delay="200"
+              data-aos-anchor-placement="top-bottom"
+            >
               <h2>Top Sellers</h2>
               <div className="small-border bg-color-2"></div>
             </div>
@@ -38,7 +43,12 @@ const TopSellers = () => {
             {loading ? (
               <SkeletonLoader count={12} type="topSellers" />
             ) : (
-              <ol className="author_list">
+              <ol
+                className="author_list"
+                data-aos="fade-in"
+                data-aos-delay="200"
+                data-aos-anchor-placement="top-bottom"
+              >
                 {data.map((seller) => (
                   <li key={seller.id}>
                     <div className="author_list_pp">
