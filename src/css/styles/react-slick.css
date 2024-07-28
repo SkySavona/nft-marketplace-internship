@@ -30,11 +30,11 @@
 }
 
 .arrow.prev {
-  left: -20px;
+  left: -30px;
 }
 
 .arrow.next {
-  right: -20px;
+  right: -30px;
 }
 
 .arrow svg {
@@ -64,17 +64,17 @@
 
 .nft_wrap img {
   max-width: 100%;
+  object-fit: cover;
   height: 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-
 }
 
 .nft_coll_pp {
   position: absolute;
   bottom: 70px;
   left: 50%;
-  
+
   transform: translateX(-50%);
 }
 
@@ -109,7 +109,13 @@
 
 .skeleton-box:after {
   animation: shimmer 2s infinite;
-  background-image: linear-gradient(90deg, hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, .2) 20%, hsla(0, 0%, 100%, .5) 60%, hsla(0, 0%, 100%, 0));
+  background-image: linear-gradient(
+    90deg,
+    hsla(0, 0%, 100%, 0),
+    hsla(0, 0%, 100%, 0.2) 20%,
+    hsla(0, 0%, 100%, 0.5) 60%,
+    hsla(0, 0%, 100%, 0)
+  );
   bottom: 0;
   content: "";
   left: 0;
