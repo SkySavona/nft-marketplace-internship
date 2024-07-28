@@ -40,6 +40,8 @@ const ExploreItems = () => {
     setVisibleItems((prevVisibleItems) => prevVisibleItems + 4);
   };
 
+  const hasMoreItems = visibleItems < items.length;
+
   return (
     <>
       <div data-aos="fade-in" data-aos-duration="2000">
@@ -101,7 +103,7 @@ const ExploreItems = () => {
                     </div>
                   </div>
                 </div>
-                <Link to={`/item-details/${item.id}`}>
+                <Link to={`/item-details/${item.nftId}`}>
                   <img
                     src={item.nftImage}
                     className="lazy nft__item_preview"
@@ -110,7 +112,7 @@ const ExploreItems = () => {
                 </Link>
               </div>
               <div className="nft__item_info">
-                <Link to={`/item-details/${item.id}`}>
+                <Link to={`/item-details/${item.nftId}`}>
                   <h4>{item.title}</h4>
                 </Link>
                 <div className="nft__item_price">{item.price} ETH</div>
@@ -123,16 +125,18 @@ const ExploreItems = () => {
           </div>
         ))
       )}
-      <div className="col-md-12 text-center">
-        <button
-          onClick={handleLoadMore}
-          id="loadmore"
-          data-aos="fade-in"
-          className="btn-main lead "
-        >
-          Load more
-        </button>
-      </div>
+     {!loading && hasMoreItems && (
+        <div className="col-md-12 text-center">
+          <button
+            onClick={handleLoadMore}
+            id="loadmore"
+            data-aos="fade-in"
+            className="btn-main lead"
+          >
+            Load more
+          </button>
+        </div>
+      )}
     </>
   );
 };
